@@ -107,17 +107,17 @@ void MenuSelection(){
                     account = findAccount();
                     if (account == -1) std::cout << "\n\t\t\t\t~ ID does not match any in the database ~\n";
                     else {
-                         int secondAccount = findAccount();
-                         if (secondAccount == -1) std::cout << "\n\t\t\t\t~ ID does not match any in the database ~\n";
+                         int targetAccount = findAccount();
+                         if (targetAccount == -1) std::cout << "\n\t\t\t\t~ ID does not match any in the database ~\n";
                          else {
                               bool transactionPerformed = false;
-                              if (tolower(choice) == 'w' && Account().accountDatabase[secondAccount].getBalance() >= amount){
-                                  Account().accountDatabase[secondAccount].withdraw(amount);
+                              if (tolower(choice) == 'w' && Account().accountDatabase[targetAccount].getBalance() >= amount){
+                                  Account().accountDatabase[targetAccount].withdraw(amount);
                                   Account().accountDatabase[account].deposit(amount);
                                   transactionPerformed = true;
                               }
                               else if (tolower(choice) == 'd' && Account().accountDatabase[account].getBalance() >= amount){
-                                  Account().accountDatabase[secondAccount].deposit(amount);
+                                  Account().accountDatabase[targetAccount].deposit(amount);
                                   Account().accountDatabase[account].withdraw(amount);
                                   transactionPerformed = true;
                               }
