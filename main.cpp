@@ -139,6 +139,7 @@ void MenuSelection(){
                     account = findAccount(id);
                     if (account == -1) std::cout << "\n\t\t\t\t~ ID does not match any in the database ~\n";
                     else {
+<<<<<<< HEAD
                          std::cout << "\n\t\t\t\t--> Please enter ID of the transaction account: ";
                          getInput(id);
                          int secondAccount = findAccount(id);
@@ -153,6 +154,20 @@ void MenuSelection(){
                               else if (tolower(choice) == 'd' && Account::accountDatabase[account].getBalance() >= amount){
                                   Account::accountDatabase[secondAccount].deposit(amount);
                                   Account::accountDatabase[account].withdraw(amount);
+=======
+                         int targetAccount = findAccount();
+                         if (targetAccount == -1) std::cout << "\n\t\t\t\t~ ID does not match any in the database ~\n";
+                         else {
+                              bool transactionPerformed = false;
+                              if (tolower(choice) == 'w' && Account().accountDatabase[targetAccount].getBalance() >= amount){
+                                  Account().accountDatabase[targetAccount].withdraw(amount);
+                                  Account().accountDatabase[account].deposit(amount);
+                                  transactionPerformed = true;
+                              }
+                              else if (tolower(choice) == 'd' && Account().accountDatabase[account].getBalance() >= amount){
+                                  Account().accountDatabase[targetAccount].deposit(amount);
+                                  Account().accountDatabase[account].withdraw(amount);
+>>>>>>> 500a8f8370ac40ca3874a232637bea076bc86c4a
                                   transactionPerformed = true;
                               }
                               if (!transactionPerformed) std::cout << "\n\t\t\t\t~ Transaction not successful ~\n";
