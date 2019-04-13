@@ -4,6 +4,10 @@
 #include <vector>
 
 class Account{
+    std::string name;
+    int id;
+    double balance;
+
 public:
     Account();
     std::string getName() const;
@@ -17,10 +21,5 @@ public:
     void deposit(double);
 
     static std::vector<Account> accountDatabase;
-
-private:
-    std::string name;
-    int id;
-    double balance;
 };
 #endif // ACCOUNT
