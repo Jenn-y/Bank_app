@@ -43,17 +43,9 @@ void Account::setID(int newId){
 }
 
 void Account::setBalance(double newBalance){
-<<<<<<< HEAD
     if (newBalance < 0)
         throw "\n\t\t\t\t  ~ Balance cannot be negative ~";
-
-=======
-    while (newBalance < 0){
-        std::cout << "\n\t\t\t\t~ Balance cannot be negative ~"
-                  << "\n\t\t\t\t--> Enter balance: ";
-        std::cin >> newBalance;
-    }
->>>>>>> 500a8f8370ac40ca3874a232637bea076bc86c4a
+    
     balance = newBalance;
 }
 
