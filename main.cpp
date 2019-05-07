@@ -107,7 +107,7 @@ void MenuSelection(){
 
       try{
         switch (option){
-            case 1: createAccount();break;
+            case 1: createAccount(); break;
 
             // check balance
             case 2:{
@@ -166,11 +166,35 @@ void MenuSelection(){
                     account = findAccount(id);
                     if (account == -1) std::cout << format("~ ID does not match any in the database ~") << "\n";
                     else {
+<<<<<<< HEAD
                         for (int i = 0; i < transactionDatabase.size(); i++)
                             if (transactionDatabase[i].getSourceAccount().getId() == accountDatabase[account].getId())
                                 transactionDatabase[i].DisplayTransactionInfo();
                         }
                     }break;
+=======
+                         std::cout << "\n\t\t\t\t--> Please enter ID of the transaction account: ";
+                         getInput(id);
+                         int secondAccount = findAccount(id);
+                         if (secondAccount == -1) std::cout << "\n\t\t\t\t~ ID does not match any in the database ~\n";
+                         else {
+                              bool transactionPerformed = false;
+                              if (tolower(choice) == 'w' && Account::accountDatabase[secondAccount].getBalance() >= amount){
+                                  Account::accountDatabase[secondAccount].withdraw(amount);
+                                  Account::accountDatabase[account].deposit(amount);
+                                  transactionPerformed = true;
+                              }
+                              else if (tolower(choice) == 'd' && Account::accountDatabase[account].getBalance() >= amount){
+                                  Account::accountDatabase[secondAccount].deposit(amount);
+                                  Account::accountDatabase[account].withdraw(amount);
+                                  transactionPerformed = true;
+                              }
+                              if (!transactionPerformed) std::cout << "\n\t\t\t\t~ Transaction not successful ~\n";
+                              else std::cout << "\n\t\t\t\t~ Transaction successfully completed ~\n";
+                            }
+                     }
+                    }
+>>>>>>> 083713312e2ca20bbf9914fae8e2625564e3587c
             }
          }
          catch (std::domain_error e){
