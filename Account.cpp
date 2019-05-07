@@ -35,13 +35,8 @@ void Account::setID(int newId){
 
 void Account::setBalance(double newBalance){
     if (newBalance < 0)
-<<<<<<< HEAD
         throw std::domain_error("~ Balance cannot be negative ~");
-
-=======
-        throw "\n\t\t\t\t  ~ Balance cannot be negative ~";
     
->>>>>>> 083713312e2ca20bbf9914fae8e2625564e3587c
     balance = newBalance;
 }
 
