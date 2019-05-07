@@ -2,17 +2,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <stdexcept>
 
 Account::Account(){
     name = "";
     id = 0;
     balance = 0;
-}
-
-std::vector<Account> Account::accountDatabase;
-
-void Account::addAccount(Account account){
-    accountDatabase.push_back(account);
 }
 
 std::string Account::getName() const{
@@ -33,40 +28,28 @@ void Account::setName(std::string userName){
 
 void Account::setID(int newId){
     if (newId < 1)
-        throw "\n\t\t\t\t  ~ ID cannot be zero or negative ~";
-
-    for (int i = 0; i < accountDatabase.size(); i++)
-        if (newId == accountDatabase[i].getId())
-            throw "\n\t\t\t\t~ Entered ID is already in use ~";
+        throw std::domain_error("~ ID cannot be zero or negative ~");
 
     id = newId;
 }
 
 void Account::setBalance(double newBalance){
-<<<<<<< HEAD
     if (newBalance < 0)
-        throw "\n\t\t\t\t  ~ Balance cannot be negative ~";
+        throw std::domain_error("~ Balance cannot be negative ~");
 
-=======
-    while (newBalance < 0){
-        std::cout << "\n\t\t\t\t~ Balance cannot be negative ~"
-                  << "\n\t\t\t\t--> Enter balance: ";
-        std::cin >> newBalance;
-    }
->>>>>>> 500a8f8370ac40ca3874a232637bea076bc86c4a
     balance = newBalance;
 }
 
 void Account::withdraw(double amount){
     if (amount < 0)
-        throw "\n\t\t\t\t  ~ Withdrawal amount cannot be negative ~";
+        throw std::domain_error("~ Withdrawal amount cannot be negative ~");
 
     balance -= amount;
 }
 
 void Account::deposit(double amount){
     if (amount < 0)
-        throw "\n\t\t\t\t  ~ Amount for deposit cannot be negative ~";
+        throw std::domain_error("~ Deposit amount cannot be negative ~");
 
     balance += amount;
 }

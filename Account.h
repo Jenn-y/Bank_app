@@ -16,10 +16,7 @@ public:
     void setName(std::string);
     void setID(int);
     void setBalance(double);
-    void addAccount (Account);
     void withdraw(double);
     void deposit(double);
-
-    static std::vector<Account> accountDatabase;
 };
 #endif // ACCOUNT
