@@ -114,6 +114,9 @@ void Bank::performTransaction(){
             std::getline(std::cin >> std::ws, description);
             Transaction t(&accountDatabase.at(srcId), &accountDatabase.at(trgId), amount, description);
             bool transactionAdded = false;
+            // add transaction to transaction database
+            // first checks if the account has already made transactions in the past
+            // to just add new transaction to the vector
             for(auto it = transactionDatabase.begin(); it != transactionDatabase.end(); it++)
                 if (it->first == srcId){
                     it->second.push_back(t);
