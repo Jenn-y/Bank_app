@@ -7,5 +7,5 @@
 4. Deposit money
 5. Print account summary
 6. Make a transaction
-7. Print history of your account transactions
+7. Print history of your account's transactions
 8. Exit :smile:
