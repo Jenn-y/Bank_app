@@ -1,7 +1,6 @@
 #ifndef ACCOUNT.H
 #define ACCOUNT.H
 #include <string>
-#include <vector>
 
 class Account{
     std::string name;
@@ -9,7 +8,7 @@ class Account{
     double balance;
 
 public:
-    Account();
+    Account(std::string, int, double);
     std::string getName() const;
     int getId() const;
     double getBalance() const;

@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Account.cpp" />
 		<Unit filename="Account.h" />
+		<Unit filename="Bank.cpp" />
+		<Unit filename="Bank.h" />
 		<Unit filename="Transaction.cpp" />
 		<Unit filename="Transaction.h" />
 		<Unit filename="main.cpp" />
